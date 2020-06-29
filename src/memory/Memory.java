@@ -41,11 +41,15 @@ public class Memory {
         }
     }
 
+    public boolean intoFieldController(int i, int j){
+        return (i < gridOfCards.length) && (j < gridOfCards[0].length) && ((i >= 0) && (j >= 0));
+    }
+
     public void uncoverCard(int i, int j){
         gridOfCards[i][j].setCovered(false);
     }
 
-    public boolean areCardsEqual(Card card1, Card card2){
+    public boolean isCardEqual(Card card1, Card card2){
         if (!(card1.getValue() == card2.getValue()) || !(card1.isCovered() == card2.isCovered())) {
             card1.setCovered(true);
             card2.setCovered(true);
