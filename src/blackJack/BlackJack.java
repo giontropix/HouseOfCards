@@ -21,7 +21,7 @@ public class BlackJack {
     }
 
     public int getDealerPonts() {
-        return dealerPonts;
+        return this.dealerPonts;
     }
 
     public void setDealerPonts(int dealerPonts) {
@@ -29,20 +29,13 @@ public class BlackJack {
     }
 
     public void shuffleDeck(){
-        frenchDeck.shuffleDeck();
+        this.frenchDeck.shuffleDeck();
     }
 
     public Card extractCard(){
-        return frenchDeck.extractCard().get(0);
+        /*Card extractedCard = this.frenchDeck.getFrenchDeck().get(0);
+        this.frenchDeck.getFrenchDeck().remove(0);
+        return extractedCard;*/
+        return this.frenchDeck.extractCard().get(frenchDeck.getExtractedFromFrenchDeck().size()-1);
     }
-
-    public void dealerGame(){
-        extractCard();
-        dealerPonts = extractCard().getValue();
-        if(dealerPonts < 17) {
-            Card extractedCard = frenchDeck.extractCard().get(0);
-            dealerPonts += extractedCard.getValue();
-        }
-    }
-
 }
