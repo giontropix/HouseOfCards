@@ -14,7 +14,7 @@ public class FrenchDeck implements Deck {
     @Override
     public void deckFiller(ArrayList<Card> deck) {
         for (int i = 0; i < 5; i++) {
-            for (int j = 1; j < 11; j++) {
+            for (int j = 1; j < 14; j++) {
                 switch (i){
                     case 0: deck.add(new Card(j, "Cuori", true));
                         break;

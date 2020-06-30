@@ -30,7 +30,7 @@ public class Memory {
     }
 
     public void shuffleCard(){
-        italianDeck.shuffleDeck(deck);
+        italianDeck.shuffleDeck();
     }
 
     public void fillerMemory(){
