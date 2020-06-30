@@ -6,7 +6,7 @@ public interface Deck {
 
     void deckFiller(ArrayList<Card> deck);
 
-    void shuffleDeck(ArrayList<Card> deck);
+    void shuffleDeck();
 
     ArrayList<Card> extractCard();
 }
