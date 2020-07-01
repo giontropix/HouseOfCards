@@ -1,7 +1,7 @@
 package cardManager;
 
 public class Card {
-    private final int value;
+    private int value;
     private final String seed;
     private boolean covered;
 
@@ -13,6 +13,10 @@ public class Card {
 
     public int getValue() {
         return this.value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public String getSeed() {

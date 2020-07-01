@@ -15,6 +15,10 @@ public class FrenchDeck implements Deck {
         return extractedFromFrenchDeck;
     }
 
+    public ArrayList<Card> getFrenchDeck() {
+        return frenchDeck;
+    }
+
     @Override
     public void deckFiller(ArrayList<Card> deck) {
         for (int i = 0; i < 5; i++) {

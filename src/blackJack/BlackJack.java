@@ -6,9 +6,10 @@ import cardManager.FrenchDeck;
 public class BlackJack {
     FrenchDeck frenchDeck = new FrenchDeck();
     private int playerPoints;
-    private int dealerPonts;
+    private int dealerPoints;
 
     public BlackJack(){
+        normalizeValueOfCardsOverTen();
         shuffleDeck();
     }
 
@@ -20,12 +21,19 @@ public class BlackJack {
         this.playerPoints = playerPoints;
     }
 
-    public int getDealerPonts() {
-        return this.dealerPonts;
+    public int getDealerPoints() {
+        return this.dealerPoints;
     }
 
-    public void setDealerPonts(int dealerPonts) {
-        this.dealerPonts = dealerPonts;
+    public void setDealerPoints(int dealerPoints) {
+        this.dealerPoints = dealerPoints;
+    }
+
+    public void normalizeValueOfCardsOverTen(){
+        for (int i = 0; i < frenchDeck.getFrenchDeck().size(); i++) {
+            if(frenchDeck.getFrenchDeck().get(i).getValue() > 10)
+                frenchDeck.getFrenchDeck().get(i).setValue(10);
+        }
     }
 
     public void shuffleDeck(){
