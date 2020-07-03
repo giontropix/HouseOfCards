@@ -1,12 +1,12 @@
 package cardManager;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 public interface Deck {
 
-    void deckFiller(ArrayList<Card> deck);
+    void deckFiller(Stack<Card> deck);
 
     void shuffleDeck();
 
-    ArrayList<Card> extractCard();
+    Stack<Card> extractCard();
 }

@@ -25,6 +25,13 @@ public class BlackJack {
         return this.dealerPoints;
     }
 
+    public void setAssoToEleven(){
+        for (int i = 0; i < frenchDeck.getExtractedFromFrenchDeck().size(); i++) {
+            if (!frenchDeck.getExtractedFromFrenchDeck().get(i).isCardOfDealer() && frenchDeck.getExtractedFromFrenchDeck().get(i).getValue() == 1)
+                frenchDeck.getExtractedFromFrenchDeck().get(i).setValue(11);
+        }
+    }
+
     public void setDealerPoints(int dealerPoints) {
         this.dealerPoints = dealerPoints;
     }
@@ -41,9 +48,6 @@ public class BlackJack {
     }
 
     public Card extractCard(){
-        /*Card extractedCard = this.frenchDeck.getFrenchDeck().get(0);
-        this.frenchDeck.getFrenchDeck().remove(0);
-        return extractedCard;*/
         return this.frenchDeck.extractCard().get(frenchDeck.getExtractedFromFrenchDeck().size()-1);
     }
 }

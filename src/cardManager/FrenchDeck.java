@@ -1,36 +1,36 @@
 package cardManager;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Stack;
 
 public class FrenchDeck implements Deck {
-    ArrayList<Card> frenchDeck = new ArrayList<>();
-    ArrayList<Card> extractedFromFrenchDeck = new ArrayList<>();
+    Stack<Card> frenchDeck = new Stack<>();
+    Stack<Card> extractedFromFrenchDeck = new Stack<>();
 
     public FrenchDeck(){
         deckFiller(this.frenchDeck);
     }
 
-    public ArrayList<Card> getExtractedFromFrenchDeck() {
+    public Stack<Card> getExtractedFromFrenchDeck() {
         return extractedFromFrenchDeck;
     }
 
-    public ArrayList<Card> getFrenchDeck() {
+    public Stack<Card> getFrenchDeck() {
         return frenchDeck;
     }
 
     @Override
-    public void deckFiller(ArrayList<Card> deck) {
+    public void deckFiller(Stack<Card> deck) {
         for (int i = 0; i < 5; i++) {
             for (int j = 1; j < 14; j++) {
                 switch (i){
-                    case 0: deck.add(new Card(j, "Cuori", true));
+                    case 0: deck.push(new Card(j, "Cuori", true, true));
                         break;
-                    case 2: deck.add(new Card(j, "Picche", true));
+                    case 2: deck.push(new Card(j, "Picche", true, true));
                         break;
-                    case 3: deck.add(new Card(j, "Quadri", true));
+                    case 3: deck.push(new Card(j, "Quadri", true, true));
                         break;
-                    case 4: deck.add(new Card(j, "Fiori", true));
+                    case 4: deck.push(new Card(j, "Fiori", true, true));
                         break;
                 }
             }
@@ -43,9 +43,8 @@ public class FrenchDeck implements Deck {
     }
 
     @Override
-    public ArrayList<Card> extractCard() {
-        this.extractedFromFrenchDeck.add(this.frenchDeck.get(0));
-        this.frenchDeck.remove(0);
+    public Stack<Card> extractCard() {
+        this.extractedFromFrenchDeck.push(this.frenchDeck.pop());
         return this.extractedFromFrenchDeck;
     }
 }

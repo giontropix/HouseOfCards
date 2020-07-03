@@ -11,6 +11,7 @@ public class Main {
         blackJack.setDealerPoints(dealerCard.getValue());
         System.out.println("Prima carta dealer: " + dealerCard.getValue() + " di " + dealerCard.getSeed());
         Card playerCard = blackJack.extractCard();
+        playerCard.setCardOfDealer(false);
         blackJack.setPlayerPoints(playerCard.getValue());
         System.out.println("Prima carta giocatore: " + playerCard.getValue() + " di " + playerCard.getSeed());
         do {
@@ -19,6 +20,7 @@ public class Main {
             String answer = scanner.nextLine();
             if(answer.equalsIgnoreCase("s")) {
                 Card playerCard2 = blackJack.extractCard();
+                playerCard2.setCardOfDealer(false);
                 System.out.println("Punti dealer: " + blackJack.getDealerPoints() + "\n");
                 System.out.println("Punti giocatore prima dell'estrazione: " + blackJack.getPlayerPoints());
                 System.out.println("Carta estratta giocatore: " + playerCard2.getValue() + " di " + playerCard2.getSeed());
@@ -29,6 +31,8 @@ public class Main {
                     return;
                 }
             }
+            else if(answer.equalsIgnoreCase("a"))
+                blackJack.setAssoToEleven();
             else break;
         } while (blackJack.getPlayerPoints() < 21);
 

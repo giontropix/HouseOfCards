@@ -1,28 +1,28 @@
 package cardManager;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Stack;
 
 public class ItalianDeck implements Deck {
-    ArrayList<Card> italianDeck = new ArrayList<>();
-    ArrayList<Card> extractedFromItalianDeck = new ArrayList<>();
+    Stack<Card> italianDeck = new Stack<>();
+    Stack<Card> extractedFromItalianDeck = new Stack<>();
 
     public ItalianDeck(){
         deckFiller(this.italianDeck);
     }
 
     @Override
-    public void deckFiller(ArrayList<Card> deck) {
+    public void deckFiller(Stack<Card> deck) {
         for (int i = 0; i < 5; i++) {
             for (int j = 1; j < 11; j++) {
                 switch (i){
-                    case 0: deck.add(new Card(j, "Spade", true));
+                    case 0: deck.push(new Card(j, "Spade", true, true));
                     break;
-                    case 2: deck.add(new Card(j, "Mazze", true));
+                    case 2: deck.push(new Card(j, "Mazze", true, true));
                     break;
-                    case 3: deck.add(new Card(j, "Oro", true));
+                    case 3: deck.push(new Card(j, "Oro", true, true));
                     break;
-                    case 4: deck.add(new Card(j, "Coppe", true));
+                    case 4: deck.push(new Card(j, "Coppe", true, true));
                     break;
                 }
             }
@@ -35,9 +35,8 @@ public class ItalianDeck implements Deck {
     }
 
     @Override
-    public ArrayList<Card> extractCard() {
-        this.extractedFromItalianDeck.add(this.italianDeck.get(0));
-        this.italianDeck.remove(0);
+    public Stack<Card> extractCard() {
+        this.extractedFromItalianDeck.push(this.italianDeck.pop());
         return this.extractedFromItalianDeck;
     }
 }
